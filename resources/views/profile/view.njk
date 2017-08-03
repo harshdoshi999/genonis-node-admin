@@ -1,0 +1,76 @@
+{% extends 'master' %}
+
+{% block content %}
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>My Profile</h3>
+      </div>
+    </div>
+    
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        {% for key, message in flashMessages %}
+          <span style="color:red">{{ message }}</span>
+        {% endfor %}
+        <div class="x_panel">
+          <div class="x_content">
+            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+              <div class="profile_img">
+                <div id="crop-avatar">
+                  <!-- Current avatar -->
+                  <img class="img-responsive avatar-view" src="/images/uploads/{{currentUser.imgUrl}}" alt="Avatar" title="Change the avatar">
+                  *Click on avatar to change
+                  <form name="changeavatar" id="changeavatar" method="post" action="/profile/changeavatar" enctype="multipart/form-data">
+                    <input id="profile-image-upload" class="hidden" type="file" name="file" id="file">
+                    {{ csrfField }}
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            	<h3>{{currentUser.firstname}} {{currentUser.lastname}}</h3>
+              <ul class="list-unstyled user_data">
+                <li>
+                  <i class="fa fa-user user-profile-icon"></i> {{currentUser.username}}
+                </li>
+                <li>
+                  <i class="fa fa-envelope user-profile-icon"></i> {{currentUser.email}}
+                </li>
+              	{% if (currentUser.city) or (currentUser.state) or (currentUser.country) %}
+								  <li>
+								  	<i class="fa fa-map-marker user-profile-icon"></i> {{currentUser.city}}, {{currentUser.state}}, {{currentUser.country}}
+                	</li>
+								{% endif %}
+								{% if (currentUser.website) %}
+								  <li class="m-top-xs">
+	                  <i class="fa fa-external-link user-profile-icon"></i>
+	                  <a href="{{currentUser.website}}" target="_blank">{{currentUser.website}}</a>
+	                </li>
+								{% endif %}
+              </ul>
+              <a class="btn btn-success" href="/profile/edit"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+              <br />
+            </div>
+          </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+$('.avatar-view').on('click', function() {
+  $('#profile-image-upload').click();
+});
+$('#profile-image-upload').on('change', function(){ uploadFile(); });
+function uploadFile(){
+  $("#changeavatar").submit();
+}
+</script>
+{% endblock %}
