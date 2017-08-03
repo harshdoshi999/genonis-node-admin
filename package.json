@@ -1,5 +1,5 @@
 {
-  "name": "adonis-app",
+  "name": "genonis-node-admin",
   "version": "3.2.1",
   "main": "server.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "serve": "node server.js",
     "lint": "standard"
   },
-  "author": "",
+  "author": "Harsh Doshi",
   "license": "MIT",
   "description": "",
   "private": true,
