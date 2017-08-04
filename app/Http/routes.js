@@ -46,5 +46,13 @@ Route.post('/user/add','UserController.add').middleware('toLogin')
 Route.get('/user/delete/:id','UserController.delete').middleware('toLogin')
 Route.get('/user/status/:id/:status','UserController.statusToggle').middleware('toLogin')
 
+/*Users module Routes*/
+Route.get('/categories','CategoryController.index').middleware('toLogin')
+Route.get('/category/edit/:id','CategoryController.edit').middleware('toLogin')
+Route.post('/category/update','CategoryController.update').middleware('toLogin')
+Route.get('/category/add','CategoryController.edit').middleware('toLogin')
+Route.post('/category/add','CategoryController.add').middleware('toLogin')
+Route.get('/category/delete/:id','CategoryController.delete').middleware('toLogin')
+
 /*Misc Routes*/
 Route.on('/inprogress').render('comingsoon')
