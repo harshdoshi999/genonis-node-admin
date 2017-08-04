@@ -9,7 +9,7 @@ class CategoryController {
 
   * index (request, response) {
 	  var authID = yield request.session.get('adonis-auth')
-	  const categories = yield Category.all()
+	  const categories = yield Category.query().where('uid',authID).fetch()
     yield response.sendView('categories/categories',{ categories: categories.toJSON() }) 
   }
 
@@ -41,6 +41,8 @@ class CategoryController {
 
   * add (request, response) {
 	  const category = new Category()
+    var authID = yield request.session.get('adonis-auth')
+    category.uid = authID
     category.name = request.input('name')
     category.description = request.input('description')
     try {

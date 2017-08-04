@@ -4,3 +4,9 @@
 4. Start project -- npm run serve:dev
 
 Demo: http://genonis.mydemos.in
+
+
+Some migration commands related to AdonisJS:
+-----------------------------------------
+1. Create new table: node ace make:migration <tableName> --create=<tableName>
+2. Run migration: node ace migration:run
