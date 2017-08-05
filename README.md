@@ -23,6 +23,10 @@ npm install
 ```
 
 ```sh
+node ace migration:run
+```
+
+```sh
 node server.js 
 ```
 
