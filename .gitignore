@@ -2,3 +2,4 @@ node_modules/
 database/development.sqlite
 public/images/uploads/
 storage/
+readme.txt

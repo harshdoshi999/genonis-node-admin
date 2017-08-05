@@ -1,12 +1,29 @@
-1. Clone this repo -- git clone https://github.com/harshdoshi999/genonis-node-admin.git
-2. Install dependencies -- npm install
-3. Import user table -- node ace migration:run
-4. Start project -- npm run serve:dev
+## **Genonis - Frontend in Nunjucks and Backend in AdonisJS**
 
-Demo: http://genonis.mydemos.in
+Demo URL: [Genonis Admin](http://genonis.mydemos.in).
 
+## **Installation**
+####1. Clone this project or Download that ZIP file
 
-Some migration commands related to AdonisJS:
------------------------------------------
-1. Create new table: node ace make:migration <tableName> --create=<tableName>
-2. Run migration: node ace migration:run
+```sh
+git clone https://github.com/harshdoshi999/genonis-node-admin.git genonis
+```
+
+####2.  Make sure you have [node](https://nodejs.org/en/download/), [npm](https://www.npmjs.org/) installed globally
+ 
+
+####3. On the command prompt run the following commands
+
+```sh
+cd `genonis`
+```
+
+```sh
+npm install 
+```
+
+```sh
+node server.js 
+```
+
+Project will be up and running on port 24890 -- http://localhost:24890
