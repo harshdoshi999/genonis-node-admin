@@ -53,6 +53,13 @@ class AuthController {
     response.route('login')
   }
 
+  * reset (request, response) {
+    var loginData = {};
+    loginData.email = request.input('email');
+    yield request.with({error: "Under Progress!!!"}).flash()
+    response.redirect('back')
+  }
+
 }
 
 module.exports = AuthController

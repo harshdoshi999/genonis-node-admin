@@ -27,9 +27,11 @@ Route.get('/dashboard','DashboardController.index').middleware('toLogin')
 /*Account Routes*/
 Route.get('/login','AuthController.index').middleware('toDashboard')
 Route.post('/login','AuthController.login').middleware('toDashboard')
-Route.get('/logout','AuthController.logout')
 Route.on('/signup').render('signup').middleware('toDashboard')
 Route.post('/signup','AuthController.signup')
+Route.on('/reset').render('reset').middleware('toDashboard')
+Route.post('/reset','AuthController.reset')
+Route.get('/logout','AuthController.logout')
 
 /*Profile Routes*/
 Route.get('/profile','ProfileController.view').middleware('toLogin')
@@ -61,6 +63,14 @@ Route.post('/post/update','PostController.update').middleware('toLogin')
 Route.get('/post/add','PostController.edit').middleware('toLogin')
 Route.post('/post/add','PostController.add').middleware('toLogin')
 Route.get('/post/delete/:id','PostController.delete').middleware('toLogin')
+
+/*Posts module Routes*/
+Route.get('/todos','TodoController.index').middleware('toLogin')
+// Route.get('/post/edit/:id','PostController.edit').middleware('toLogin')
+// Route.post('/post/update','PostController.update').middleware('toLogin')
+// Route.get('/post/add','PostController.edit').middleware('toLogin')
+// Route.post('/post/add','PostController.add').middleware('toLogin')
+// Route.get('/post/delete/:id','PostController.delete').middleware('toLogin')
 
 /*Misc Routes*/
 Route.on('/inprogress').render('comingsoon')
